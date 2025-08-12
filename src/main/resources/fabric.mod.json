@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "abyssal_spectrum",
+	"version": "${version}",
+	"name": "Abyssal Spectrum",
+	"description": "A magic mod made by Alpheta",
+	"authors": [
+		"Alpheta"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/user/Alpheta",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/abyssal_spectrum/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"alpheta.abyssal_spectrum.AbyssalSpectrum"
+		],
+		"fabric-datagen": [
+			"alpheta.abyssal_spectrum.AbyssalSpectrumDataGenerator"
+		]
+	},
+	"mixins": [
+		"abyssal_spectrum.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
