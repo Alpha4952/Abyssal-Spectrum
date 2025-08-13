@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+        "all": "abyssal_spectrum:block/stellarite_block"
+    }
+}
