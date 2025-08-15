@@ -1,0 +1,14 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "abyssal_spectrum:item/abyssal_steel_sword"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 35],
+			"translation": [0, 4.75, 1.5]
+		}
+	}
+}

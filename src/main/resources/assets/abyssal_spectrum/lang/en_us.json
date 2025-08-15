@@ -1,7 +1,18 @@
 {
     "itemgroup.abyssal_spectrum.items": "Abyssal Spectrum",
 
+    "item.abyssal_spectrum.abyssal_steel_ingot": "Abyssal Steel ingot",
+    "item.abyssal_spectrum.ebonite_ingot": "Ebonite ingot",
+    "item.abyssal_spectrum.pyronite_ingot": "Pyronite ingot",
+    "item.abyssal_spectrum.void_steel_ingot": "Void Steel ingot",
     "item.abyssal_spectrum.stellarite_ingot": "Stellarite ingot",
 
+    "item.abyssal_spectrum.abyssal_steel_sword": "Abyssal Steel sword",
+    "item.abyssal_spectrum.abyssal_steel_pickaxe": "Abyssal Steel pickaxe",
+
+    "block.abyssal_spectrum.abyssal_steel_block": "Block of Abyssal Steel",
+    "block.abyssal_spectrum.ebonite_block": "Block of Ebonite",
+    "block.abyssal_spectrum.pyronite_block": "Block of Pyronite",
+    "block.abyssal_spectrum.void_steel_block": "Block of Void Steel",
     "block.abyssal_spectrum.stellarite_block": "Block of Stellarite"
 }

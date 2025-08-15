@@ -5,6 +5,7 @@ import alpheta.abyssal_spectrum.config.AbyssalSpectrumClientConfig;
 import alpheta.abyssal_spectrum.config.AbyssalSpectrumServerConfig;
 import alpheta.abyssal_spectrum.item.ModGroups;
 import alpheta.abyssal_spectrum.item.ModItems;
+import alpheta.abyssal_spectrum.item.ModLootTable;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -21,5 +22,7 @@ public class AbyssalSpectrum implements ModInitializer {
         ModGroups.registerModGroups();
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
+
+        ModLootTable.modifyLootTables();
 	}
 }

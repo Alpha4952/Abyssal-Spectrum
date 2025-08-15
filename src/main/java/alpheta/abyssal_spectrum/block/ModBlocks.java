@@ -12,6 +12,14 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
+    public static final Block abyssal_steel_block = registerBlock("abyssal_steel_block",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_AQUA)
+                    .requiresTool()
+                    .strength(50.0F, 2000.0F)
+                    .sounds(BlockSoundGroup.NETHERITE))
+    );
+
     public static final Block stellarite_block = registerBlock("stellarite_block",
             new Block(AbstractBlock.Settings.create()
                     .mapColor(MapColor.BLACK)
