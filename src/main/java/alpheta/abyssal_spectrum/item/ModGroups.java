@@ -18,8 +18,17 @@ public class ModGroups {
                     .icon(() -> new ItemStack(ModItems.stellarite_ingot))
                     .displayName(Text.translatable("itemgroup.abyssal_spectrum.items"))
                     .entries((displayContext, entries) -> {
+                        entries.add(ModItems.abyssal_steel_ingot);
+                        entries.add(ModItems.abyssal_scrap);
+                        entries.add(ModBlocks.abyssal_steel_block);
+                        entries.add(ModItems.ebonite_ingot);
+                        entries.add(ModItems.pyronite_ingot);
+                        entries.add(ModItems.void_steel_ingot);
                         entries.add(ModItems.stellarite_ingot);
                         entries.add(ModBlocks.stellarite_block);
+
+                        entries.add(ModItems.abyssal_steel_sword);
+                        entries.add(ModItems.abyssal_steel_pickaxe);
                     })
                     .build());
 
