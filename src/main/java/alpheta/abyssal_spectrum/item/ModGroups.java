@@ -19,6 +19,7 @@ public class ModGroups {
                     .displayName(Text.translatable("itemgroup.abyssal_spectrum.items"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.abyssal_steel_ingot);
+                        entries.add(ModItems.abyssal_scrap);
                         entries.add(ModBlocks.abyssal_steel_block);
                         entries.add(ModItems.ebonite_ingot);
                         entries.add(ModItems.pyronite_ingot);

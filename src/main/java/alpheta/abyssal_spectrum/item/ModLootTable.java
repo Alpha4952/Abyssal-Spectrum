@@ -12,10 +12,11 @@ import net.minecraft.util.Identifier;
 
 public class ModLootTable {
     private static final Identifier ELDER_GUARDIAN = Identifier.of("minecraft", "entities/elder_guardian");
+    private static final Identifier WARDEN = Identifier.of("minecraft", "entities/warden");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registry) -> {
-            if(ELDER_GUARDIAN.equals(key.getValue())) {
+            if (ELDER_GUARDIAN.equals(key.getValue())) {
                 LootPool.Builder guaranteed = LootPool.builder()
                         .conditionally(KilledByPlayerLootCondition.builder())
                         .rolls(ConstantLootNumberProvider.create(AbyssalSpectrum.SERVER_CONFIG.ebonite_ingots_from_elder_guardian()))
@@ -37,6 +38,16 @@ public class ModLootTable {
                 tableBuilder.pool(guaranteed.build());
                 tableBuilder.pool(bonus1.build());
                 tableBuilder.pool(bonus2.build());
+            }
+
+            if (WARDEN.equals(key.getValue())) {
+                LootPool.Builder guaranteed = LootPool.builder()
+                        .conditionally(KilledByPlayerLootCondition.builder())
+                        .rolls(ConstantLootNumberProvider.create(AbyssalSpectrum.SERVER_CONFIG.abyssal_scraps_from_warden()))
+                        .conditionally(RandomChanceLootCondition.builder(1))
+                        .with(ItemEntry.builder(ModItems.abyssal_scrap));
+
+                tableBuilder.pool(guaranteed.build());
             }
         });
     }

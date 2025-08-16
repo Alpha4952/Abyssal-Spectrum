@@ -3,12 +3,35 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:item/generated",
 	"textures": {
-		"layer0": "abyssal_spectrum:item/abyssal_steel_sword"
+		"layer0": "abyssal_spectrum:item/abyssal_steel_sword",
+		"particle": "abyssal_spectrum:item/abyssal_steel_sword"
 	},
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -90, 35],
 			"translation": [0, 4.75, 1.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, -90, 35],
+			"translation": [0, 5.5, 1.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 90, 65],
+			"translation": [1, 3.75, 1.5],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -100, -65],
+			"translation": [1.5, 3.75, 1.5],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"ground": {
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"rotation": [-180, 90, 0],
+			"translation": [0, 7.5, -8.5]
 		}
 	}
 }
