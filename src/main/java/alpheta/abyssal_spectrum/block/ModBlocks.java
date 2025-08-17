@@ -1,6 +1,7 @@
 package alpheta.abyssal_spectrum.block;
 
 import alpheta.abyssal_spectrum.AbyssalSpectrum;
+import alpheta.abyssal_spectrum.block.custom.NetheriteSmelterBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
@@ -16,7 +17,7 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create()
                     .mapColor(MapColor.DARK_AQUA)
                     .requiresTool()
-                    .strength(50.0F, 2000.0F)
+                    .strength(60.0F, 2000.0F)
                     .sounds(BlockSoundGroup.NETHERITE))
     );
 
@@ -26,6 +27,14 @@ public class ModBlocks {
                     .requiresTool()
                     .strength(75.0F, 2000.0F)
                     .sounds(BlockSoundGroup.NETHERITE))
+    );
+
+    public static final Block netherite_smelter = registerBlock("netherite_smelter",
+            new NetheriteSmelterBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLACK)
+                    .requiresTool()
+                    .strength(50.0F, 2000.0F)
+                    .sounds(BlockSoundGroup.LODESTONE))
     );
 
     private static Block registerBlock(String name, Block block) {

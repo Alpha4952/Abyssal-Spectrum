@@ -10,10 +10,19 @@
 
     "item.abyssal_spectrum.abyssal_steel_sword": "Abyssal Steel sword",
     "item.abyssal_spectrum.abyssal_steel_pickaxe": "Abyssal Steel pickaxe",
+    "item.abyssal_spectrum.abyssal_steel_helmet": "Abyssal Steel helmet",
+    "item.abyssal_spectrum.abyssal_steel_chestplate": "Abyssal Steel chestplate",
+    "item.abyssal_spectrum.abyssal_steel_leggings": "Abyssal Steel leggings",
+    "item.abyssal_spectrum.abyssal_steel_boots": "Abyssal Steel boots",
 
     "block.abyssal_spectrum.abyssal_steel_block": "Block of Abyssal Steel",
     "block.abyssal_spectrum.ebonite_block": "Block of Ebonite",
     "block.abyssal_spectrum.pyronite_block": "Block of Pyronite",
     "block.abyssal_spectrum.void_steel_block": "Block of Void Steel",
-    "block.abyssal_spectrum.stellarite_block": "Block of Stellarite"
+    "block.abyssal_spectrum.stellarite_block": "Block of Stellarite",
+    "block.abyssal_spectrum.netherite_smelter": "Netherite Smelter",
+
+    "tooltip.abyssal_spectrum.needs_shift": "Press §dShift§r for more information",
+    "tooltip.armor.abyssal_spectrum.abyssal_steel1": "Full set bonus: §1Abyssal Protection§r",
+    "tooltip.armor.abyssal_spectrum.abyssal_steel2": "    §oReduces 20% damage taken§r"
 }

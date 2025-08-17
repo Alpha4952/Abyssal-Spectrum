@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "n": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "o": {
+            "item": "minecraft:obsidian"
+        },
+        "b": {
+            "item": "minecraft:blast_furnace"
+        }
+    },
+    "pattern": [
+        "nnn",
+        "nbn",
+        "aaa"
+    ],
+    "result": {
+        "count": 1,
+        "id": "abyssal_spectrum:netherite_smelter"
+    }
+}

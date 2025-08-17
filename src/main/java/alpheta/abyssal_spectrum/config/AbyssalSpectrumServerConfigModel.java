@@ -16,6 +16,7 @@ public class AbyssalSpectrumServerConfigModel {
     public float ebonite_ingots_drop_chance = 1f;
     public float ebonite_ingots_first_bonus = 0.5f;
     public float ebonite_ingots_second_bonus = 0.5f;
+    public float ebonite_ingots_guardian_drop_chance = 0.01f;
 
     public boolean abyssal_reactor_requires_eclipse = true;
 }

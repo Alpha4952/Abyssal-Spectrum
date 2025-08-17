@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "minecraft:netherite_sword"
+    },
+    "addition": {
+        "item": "abyssal_spectrum:abyssal_steel_ingot"
+    },
+    "result": {
+        "item": "abyssal_spectrum:abyssal_steel_sword"
+    }
+}
