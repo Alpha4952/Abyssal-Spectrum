@@ -1,0 +1,9 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "abyssal_spectrum:item/abyssal_steel_pickaxe",
+		"particle": "abyssal_spectrum:item/abyssal_steel_pickaxe"
+	}
+}

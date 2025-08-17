@@ -23,12 +23,18 @@ public class ModGroups {
                         entries.add(ModBlocks.abyssal_steel_block);
                         entries.add(ModItems.ebonite_ingot);
                         entries.add(ModItems.pyronite_ingot);
-                        entries.add(ModItems.void_steel_ingot);
+                        entries.add(ModItems.voidsteel_ingot);
                         entries.add(ModItems.stellarite_ingot);
                         entries.add(ModBlocks.stellarite_block);
 
                         entries.add(ModItems.abyssal_steel_sword);
                         entries.add(ModItems.abyssal_steel_pickaxe);
+                        entries.add(ModItems.abyssal_steel_helmet);
+                        entries.add(ModItems.abyssal_steel_chestplate);
+                        entries.add(ModItems.abyssal_steel_leggings);
+                        entries.add(ModItems.abyssal_steel_boots);
+
+                        entries.add(ModBlocks.netherite_smelter);
                     })
                     .build());
 

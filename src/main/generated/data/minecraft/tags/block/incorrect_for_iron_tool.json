@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#abyssal_spectrum:needs_abyssal_steel_tool",
+    "#abyssal_spectrum:needs_abyssalite_tool",
+    "#abyssal_spectrum:needs_pyronite_tool",
+    "#abyssal_spectrum:needs_voidsteel_tool",
+    "#abyssal_spectrum:needs_stellarite_tool"
+  ]
+}

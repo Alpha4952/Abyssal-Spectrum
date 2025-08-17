@@ -1,7 +1,6 @@
 package alpheta.abyssal_spectrum.item;
 
 import alpheta.abyssal_spectrum.AbyssalSpectrum;
-import alpheta.abyssal_spectrum.config.AbyssalSpectrumServerConfig;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.KilledByPlayerLootCondition;
@@ -12,6 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class ModLootTable {
     private static final Identifier ELDER_GUARDIAN = Identifier.of("minecraft", "entities/elder_guardian");
+    private static final Identifier GUARDIAN = Identifier.of("minecraft", "entities/guardian");
     private static final Identifier WARDEN = Identifier.of("minecraft", "entities/warden");
 
     public static void modifyLootTables() {
@@ -20,7 +20,7 @@ public class ModLootTable {
                 LootPool.Builder guaranteed = LootPool.builder()
                         .conditionally(KilledByPlayerLootCondition.builder())
                         .rolls(ConstantLootNumberProvider.create(AbyssalSpectrum.SERVER_CONFIG.ebonite_ingots_from_elder_guardian()))
-                        .conditionally(RandomChanceLootCondition.builder(AbyssalSpectrum.SERVER_CONFIG.ebonite_ingots_drop_chance()))
+                        .conditionally(RandomChanceLootCondition.builder(1))
                         .with(ItemEntry.builder(ModItems.ebonite_ingot));
 
                 LootPool.Builder bonus1 = LootPool.builder()
@@ -38,6 +38,16 @@ public class ModLootTable {
                 tableBuilder.pool(guaranteed.build());
                 tableBuilder.pool(bonus1.build());
                 tableBuilder.pool(bonus2.build());
+            }
+
+            if (GUARDIAN.equals(key.getValue())) {
+                LootPool.Builder guardian = LootPool.builder()
+                        .conditionally(KilledByPlayerLootCondition.builder())
+                        .rolls(ConstantLootNumberProvider.create(AbyssalSpectrum.SERVER_CONFIG.ebonite_ingots_from_elder_guardian()))
+                        .conditionally(RandomChanceLootCondition.builder(AbyssalSpectrum.SERVER_CONFIG.ebonite_ingots_guardian_drop_chance()))
+                        .with(ItemEntry.builder(ModItems.ebonite_ingot));
+
+                tableBuilder.pool(guardian.build());
             }
 
             if (WARDEN.equals(key.getValue())) {
