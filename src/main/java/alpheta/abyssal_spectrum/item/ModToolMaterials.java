@@ -12,8 +12,11 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
-    ABYSSAL_STEEL(ModTags.Blocks.INCORRECT_FOR_ABYSSAL_STEEL_TOOL, 4096, 10.0F, 5.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.abyssal_steel_ingot})),
-    ABYSSALITE(ModTags.Blocks.INCORRECT_FOR_ABYSSALITE_TOOL, 6144, 11.0F, 6.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.ebonite_ingot}));
+    ABYSSAL_STEEL(ModTags.Blocks.INCORRECT_FOR_ABYSSAL_STEEL_TOOL, 4096, 35.0F, 5.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.abyssal_steel_ingot})),
+    ABYSSALITE(ModTags.Blocks.INCORRECT_FOR_ABYSSALITE_TOOL, 6144, 37.0F, 7.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.ebonite_ingot})),
+    PYRONITE(ModTags.Blocks.INCORRECT_FOR_PYRONITE_TOOL, 8192, 39.0F, 9.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.pyronite_ingot})),
+    VOIDSTEEL(ModTags.Blocks.INCORRECT_FOR_VOIDSTEEL_TOOL, 10240 , 41.0F, 11.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.voidsteel_ingot})),
+    STELLARITE(ModTags.Blocks.INCORRECT_FOR_STELLARITE_TOOL, 12288, 43.0F, 13.0F, 0, () -> Ingredient.ofItems(new ItemConvertible[]{ModItems.stellarite_ingot}));
 
     private final TagKey<Block> inverseTag;
     private final int itemDurability;

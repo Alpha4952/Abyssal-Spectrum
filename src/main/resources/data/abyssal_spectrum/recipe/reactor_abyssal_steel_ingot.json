@@ -1,0 +1,13 @@
+{
+    "type": "abyssal_spectrum:reactor",
+    "input1": {
+        "item": "abyssal_spectrum:abyssal_scrap"
+    },
+    "input2": {
+        "item": "minecraft:netherite_ingot"
+    },
+    "result": {
+        "id": "abyssal_spectrum:abyssal_steel_ingot",
+        "count": 1
+    }
+}

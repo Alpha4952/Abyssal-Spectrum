@@ -15,9 +15,8 @@
 	"icon": "assets/abyssal_spectrum/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"alpheta.abyssal_spectrum.AbyssalSpectrum"
-		],
+		"main": [ "alpheta.abyssal_spectrum.AbyssalSpectrum" ],
+        "client": [ "alpheta.abyssal_spectrum.AbyssalSpectrumClient" ],
 		"fabric-datagen": [
 			"alpheta.abyssal_spectrum.AbyssalSpectrumDataGenerator"
 		]

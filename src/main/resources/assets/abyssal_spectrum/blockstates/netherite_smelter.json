@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "facing=north,lit=false": { "model": "abyssal_spectrum:block/netherite_smelter" },
+        "facing=south,lit=false": { "model": "abyssal_spectrum:block/netherite_smelter", "y": 180 },
+        "facing=west,lit=false":  { "model": "abyssal_spectrum:block/netherite_smelter", "y": 270 },
+        "facing=east,lit=false":  { "model": "abyssal_spectrum:block/netherite_smelter", "y": 90 },
+
+        "facing=north,lit=true": { "model": "abyssal_spectrum:block/netherite_smelter_lit" },
+        "facing=south,lit=true": { "model": "abyssal_spectrum:block/netherite_smelter_lit", "y": 180 },
+        "facing=west,lit=true": { "model": "abyssal_spectrum:block/netherite_smelter_lit", "y": 270 },
+        "facing=east,lit=true": { "model": "abyssal_spectrum:block/netherite_smelter_lit", "y": 90 }
+    }
+}
