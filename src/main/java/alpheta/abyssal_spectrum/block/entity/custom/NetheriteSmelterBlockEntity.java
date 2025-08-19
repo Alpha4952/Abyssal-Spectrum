@@ -1,6 +1,7 @@
 package alpheta.abyssal_spectrum.block.entity.custom;
 
 import alpheta.abyssal_spectrum.block.custom.NetheriteSmelterBlock;
+import alpheta.abyssal_spectrum.item.ModItems;
 import alpheta.abyssal_spectrum.recipe.ModRecipes;
 import alpheta.abyssal_spectrum.recipe.ReactorInput;
 import alpheta.abyssal_spectrum.recipe.ReactorRecipe;
@@ -130,6 +131,8 @@ public class NetheriteSmelterBlockEntity extends BlockEntity implements Extended
             this.fuel = 1200;
             this.removeStack(INPUT_FUEL, 1);
             this.setStack(INPUT_FUEL, new ItemStack(Items.BUCKET, 1));
+        } else if (fuel == 0 && progress > 0) {
+            progress--;
         } else if (fuel > 0) {
             reduceFuelLevel();
             if (hasRecipe()) {
@@ -189,6 +192,7 @@ public class NetheriteSmelterBlockEntity extends BlockEntity implements Extended
         if (recipe.isEmpty()) {
             return false;
         }
+        if (recipe.get().value().getLevel() > 1) return false;
 
         ItemStack output = recipe.get().value().output();
 

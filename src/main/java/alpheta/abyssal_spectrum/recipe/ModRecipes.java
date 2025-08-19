@@ -16,19 +16,19 @@ public class ModRecipes {
             Registries.RECIPE_TYPE, Identifier.of(AbyssalSpectrum.MOD_ID, "reactor"), new RecipeType<ReactorRecipe>() {
                 @Override
                 public String toString() {
-                    return "netherite_smelter";
+                    return AbyssalSpectrum.MOD_ID + ":reactor";
                 }
             });
 
-    public static final RecipeSerializer<ReactorRecipe> ALTAR_SERIALIZER = Registry.register(
+    public static final RecipeSerializer<AltarRecipe> ALTAR_SERIALIZER = Registry.register(
             Registries.RECIPE_SERIALIZER, Identifier.of(AbyssalSpectrum.MOD_ID, "altar"),
-            new ReactorRecipe.Serializer());
+            new AltarRecipe.Serializer());
 
-    public static final RecipeType<ReactorRecipe> ALTAR_TYPE = Registry.register(
-            Registries.RECIPE_TYPE, Identifier.of(AbyssalSpectrum.MOD_ID, "altar"), new RecipeType<ReactorRecipe>() {
+    public static final RecipeType<AltarRecipe> ALTAR_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(AbyssalSpectrum.MOD_ID, "altar"), new RecipeType<AltarRecipe>() {
                 @Override
                 public String toString() {
-                    return "netherite_smelter";
+                    return AbyssalSpectrum.MOD_ID + ":altar";
                 }
             });
 

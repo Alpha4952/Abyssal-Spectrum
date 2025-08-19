@@ -8,8 +8,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item abyssal_steel_ingot = registerItem("abyssal_steel_ingot", new Item(new Item.Settings()));
     public static final Item abyssal_scrap = registerItem("abyssal_scrap", new Item(new Item.Settings()));
+    public static final Item abyssal_steel_ingot = registerItem("abyssal_steel_ingot", new Item(new Item.Settings()));
+    public static final Item ebonite_scrap = registerItem("ebonite_scrap", new Item(new Item.Settings()));
     public static final Item ebonite_ingot = registerItem("ebonite_ingot", new Item(new Item.Settings()));
     public static final Item pyronite_ingot = registerItem("pyronite_ingot", new Item(new Item.Settings()));
     public static final Item voidsteel_ingot = registerItem("void_steel_ingot", new Item(new Item.Settings()));

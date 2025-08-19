@@ -1,10 +1,12 @@
 package alpheta.abyssal_spectrum.recipe;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
@@ -13,7 +15,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public record ReactorRecipe(Ingredient input1, Ingredient input2, ItemStack output) implements Recipe<ReactorInput> {
+public record ReactorRecipe(Ingredient input1, Ingredient input2, ItemStack output, int level) implements Recipe<ReactorInput> {
 
     @Override
     public DefaultedList<Ingredient> getIngredients() {
@@ -46,7 +48,7 @@ public record ReactorRecipe(Ingredient input1, Ingredient input2, ItemStack outp
 
     @Override
     public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
-        return output;
+        return output.copy();
     }
 
     @Override
@@ -59,12 +61,17 @@ public record ReactorRecipe(Ingredient input1, Ingredient input2, ItemStack outp
         return ModRecipes.REACTOR_TYPE;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     // --- Serializer class ---
     public static class Serializer implements RecipeSerializer<ReactorRecipe> {
         public static final MapCodec<ReactorRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
                 Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("input1").forGetter(ReactorRecipe::input1),
                 Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("input2").forGetter(ReactorRecipe::input2),
-                ItemStack.CODEC.fieldOf("result").forGetter(ReactorRecipe::output)
+                ItemStack.CODEC.fieldOf("result").forGetter(ReactorRecipe::output),
+                Codec.INT.fieldOf("level").forGetter(ReactorRecipe::level)
         ).apply(inst, ReactorRecipe::new));
 
         public static final PacketCodec<RegistryByteBuf, ReactorRecipe> STREAM_CODEC =
@@ -72,6 +79,7 @@ public record ReactorRecipe(Ingredient input1, Ingredient input2, ItemStack outp
                         Ingredient.PACKET_CODEC, ReactorRecipe::input1,
                         Ingredient.PACKET_CODEC, ReactorRecipe::input2,
                         ItemStack.PACKET_CODEC, ReactorRecipe::output,
+                        PacketCodecs.VAR_INT, ReactorRecipe::level,
                         ReactorRecipe::new
                 );
 
