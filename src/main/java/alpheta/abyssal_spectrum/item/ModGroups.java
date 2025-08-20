@@ -15,7 +15,7 @@ public class ModGroups {
             Registries.ITEM_GROUP,
             Identifier.of(AbyssalSpectrum.MOD_ID, "items"),
             FabricItemGroup.builder()
-                    .icon(() -> new ItemStack(ModItems.stellarite_ingot))
+                    .icon(() -> new ItemStack(ModItems.ebonite_ingot))
                     .displayName(Text.translatable("itemgroup.abyssal_spectrum.items"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.abyssal_scrap);

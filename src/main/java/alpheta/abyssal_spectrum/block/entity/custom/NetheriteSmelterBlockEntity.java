@@ -1,7 +1,6 @@
 package alpheta.abyssal_spectrum.block.entity.custom;
 
 import alpheta.abyssal_spectrum.block.custom.NetheriteSmelterBlock;
-import alpheta.abyssal_spectrum.item.ModItems;
 import alpheta.abyssal_spectrum.recipe.ModRecipes;
 import alpheta.abyssal_spectrum.recipe.ReactorInput;
 import alpheta.abyssal_spectrum.recipe.ReactorRecipe;

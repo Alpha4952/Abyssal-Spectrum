@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 
 public class AbyssalSpectrumClient implements ClientModInitializer {
     public static final String MOD_ID = "abyssal_spectrum_client";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static final AbyssalSpectrumClientConfig CLIENT_CONFIG = AbyssalSpectrumClientConfig.createAndLoad();
 
     @Override
@@ -26,5 +25,7 @@ public class AbyssalSpectrumClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.ALTAR_BE, AltarBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.CRYSTAL_HOLDER_BE, CrystalHolderBlockEntityRenderer::new);
+
+
     }
 }
