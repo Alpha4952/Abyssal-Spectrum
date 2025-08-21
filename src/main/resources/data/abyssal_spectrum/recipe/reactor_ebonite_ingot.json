@@ -1,0 +1,14 @@
+{
+    "type": "abyssal_spectrum:reactor",
+    "level": 2,
+    "input1": {
+        "item": "abyssal_spectrum:ebonite_scrap"
+    },
+    "input2": {
+        "item": "abyssal_spectrum:ebonite_ingot"
+    },
+    "result": {
+        "id": "abyssal_spectrum:ebonite_ingot",
+        "count": 2
+    }
+}

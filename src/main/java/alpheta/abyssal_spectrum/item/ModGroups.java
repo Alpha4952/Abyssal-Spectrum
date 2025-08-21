@@ -15,13 +15,15 @@ public class ModGroups {
             Registries.ITEM_GROUP,
             Identifier.of(AbyssalSpectrum.MOD_ID, "items"),
             FabricItemGroup.builder()
-                    .icon(() -> new ItemStack(ModItems.stellarite_ingot))
+                    .icon(() -> new ItemStack(ModItems.ebonite_ingot))
                     .displayName(Text.translatable("itemgroup.abyssal_spectrum.items"))
                     .entries((displayContext, entries) -> {
-                        entries.add(ModItems.abyssal_steel_ingot);
                         entries.add(ModItems.abyssal_scrap);
+                        entries.add(ModItems.abyssal_steel_ingot);
                         entries.add(ModBlocks.abyssal_steel_block);
+                        entries.add(ModItems.ebonite_scrap);
                         entries.add(ModItems.ebonite_ingot);
+                        entries.add(ModBlocks.ebonite_block);
                         entries.add(ModItems.pyronite_ingot);
                         entries.add(ModItems.voidsteel_ingot);
                         entries.add(ModItems.stellarite_ingot);
@@ -35,6 +37,8 @@ public class ModGroups {
                         entries.add(ModItems.abyssal_steel_boots);
 
                         entries.add(ModBlocks.netherite_smelter);
+                        entries.add(ModBlocks.altar);
+                        entries.add(ModBlocks.crystal_holder);
                     })
                     .build());
 

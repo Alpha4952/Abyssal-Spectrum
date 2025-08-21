@@ -1,5 +1,6 @@
 {
     "type": "abyssal_spectrum:reactor",
+    "level": 1,
     "input1": {
         "item": "abyssal_spectrum:abyssal_scrap"
     },

@@ -87,7 +87,7 @@ public interface ImplementedInventory extends SidedInventory {
      */
     @Override
     default boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
-        return true;
+        return false;
     }
 
     /**
@@ -102,7 +102,7 @@ public interface ImplementedInventory extends SidedInventory {
      */
     @Override
     default boolean canExtract(int slot, ItemStack stack, Direction side) {
-        return true;
+        return false;
     }
 
     // Inventory
@@ -190,8 +190,9 @@ public interface ImplementedInventory extends SidedInventory {
     @Override
     default void setStack(int slot, ItemStack stack) {
         getItems().set(slot, stack);
-        if (stack.getCount() > getMaxCountPerStack()) {
-            stack.setCount(getMaxCountPerStack());
+        int max = stack.getMaxCount(); // item-specific max (e.g., 1 for buckets, 16 for pearls)
+        if (stack.getCount() > max) {
+            stack.setCount(max);
         }
     }
 

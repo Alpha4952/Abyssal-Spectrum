@@ -1,9 +1,10 @@
 {
     "itemgroup.abyssal_spectrum.items": "Abyssal Spectrum",
 
+    "item.abyssal_spectrum.abyssal_scrap": "Abyssal scrap",
     "item.abyssal_spectrum.abyssal_steel_ingot": "Abyssal Steel ingot",
-    "item.abyssal_spectrum.abyssal_scrap": "Abyssal Scrap",
     "item.abyssal_spectrum.ebonite_ingot": "Ebonite ingot",
+    "item.abyssal_spectrum.ebonite_scrap": "Ebonite scrap",
     "item.abyssal_spectrum.pyronite_ingot": "Pyronite ingot",
     "item.abyssal_spectrum.void_steel_ingot": "Void Steel ingot",
     "item.abyssal_spectrum.stellarite_ingot": "Stellarite ingot",
@@ -21,6 +22,8 @@
     "block.abyssal_spectrum.void_steel_block": "Block of Void Steel",
     "block.abyssal_spectrum.stellarite_block": "Block of Stellarite",
     "block.abyssal_spectrum.netherite_smelter": "Netherite Smelter",
+    "block.abyssal_spectrum.altar": "Altar",
+    "block.abyssal_spectrum.crystal_holder": "Crystal Holder",
 
     "tooltip.abyssal_spectrum.needs_shift": "Press §dShift§r for more information",
     "tooltip.armor.abyssal_spectrum.abyssal_steel1": "Full set bonus: §1Abyssal Protection§r",
