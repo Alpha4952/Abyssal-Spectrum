@@ -1,6 +1,7 @@
 package alpheta.abyssal_spectrum.item;
 
 import alpheta.abyssal_spectrum.AbyssalSpectrum;
+import alpheta.abyssal_spectrum.item.custom.CrystalItem;
 import alpheta.abyssal_spectrum.item.custom.abyssal_steel_armor.AbyssalSteelArmorItem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -82,6 +83,10 @@ public class ModItems {
                     .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.STELLARITE, 1, -2.8f))
             )
     );
+
+    public static final Item depleted_crystal = registerItem("depleted_crystal", new CrystalItem(new Item.Settings()));
+    public static final Item abyssal_steel_upgrade_crystal = registerItem("abyssal_steel_upgrade_crystal", new CrystalItem(new Item.Settings()));
+
 
     private static Item registerItem(String item_name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(AbyssalSpectrum.MOD_ID, item_name), item);

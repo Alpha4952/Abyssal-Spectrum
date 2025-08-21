@@ -20,6 +20,18 @@ public class ModRecipes {
                 }
             });
 
+    public static final RecipeSerializer<AltarRecipe> ALTAR_SERIALIZER = Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(AbyssalSpectrum.MOD_ID, "altar"),
+            new AltarRecipe.Serializer());
+
+    public static final RecipeType<AltarRecipe> ALTAR_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(AbyssalSpectrum.MOD_ID, "altar"), new RecipeType<AltarRecipe>() {
+                @Override
+                public String toString() {
+                    return AbyssalSpectrum.MOD_ID + ":altar";
+                }
+            });
+
     public static void registerRecipes() {
         AbyssalSpectrum.LOGGER.info("Registering Custom Recipes for " + AbyssalSpectrum.MOD_ID);
     }
