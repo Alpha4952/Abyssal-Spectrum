@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class AltarBlock extends BlockWithEntity implements BlockEntityProvider {
     private static final VoxelShape SHAPE =
-            Block.createCuboidShape(0, 0, 0, 16, 16, 16);
+            Block.createCuboidShape(1, 0, 1, 15, 16, 15);
     public static final MapCodec<AltarBlock> CODEC = AltarBlock.createCodec(AltarBlock::new);
 
     public AltarBlock(Settings settings) {
@@ -45,7 +45,7 @@ public class AltarBlock extends BlockWithEntity implements BlockEntityProvider {
 
     @Override
     protected BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
+        return BlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
     @Override

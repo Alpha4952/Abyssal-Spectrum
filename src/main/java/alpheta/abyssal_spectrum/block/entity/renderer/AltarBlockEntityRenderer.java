@@ -1,6 +1,8 @@
 package alpheta.abyssal_spectrum.block.entity.renderer;
 
+import alpheta.abyssal_spectrum.block.custom.AltarBlock;
 import alpheta.abyssal_spectrum.block.entity.custom.AltarBlockEntity;
+import alpheta.abyssal_spectrum.block.entity.custom.AltarBlockEntityModel;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.OverlayTexture;
@@ -15,23 +17,26 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import software.bernie.geckolib.renderer.GeoBlockRenderer;
 
-public class AltarBlockEntityRenderer implements BlockEntityRenderer<AltarBlockEntity> {
+public class AltarBlockEntityRenderer extends GeoBlockRenderer<AltarBlockEntity> implements BlockEntityRenderer<AltarBlockEntity> {
     public AltarBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
-
+        super(new AltarBlockEntityModel());
     }
 
     @Override
-    public void render(AltarBlockEntity entity, float tickDelta, MatrixStack matrices,
-                       VertexConsumerProvider vertexConsumers, int light, int overlay) {
+    public void render(AltarBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        super.render(entity, tickDelta, matrices, vertexConsumers, light, overlay);
+
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         ItemStack stack = entity.getStack(0);
 
         matrices.push();
-        matrices.translate(0.5f, 1.15f, 0.5f);
+        matrices.translate(0.5f, 1.25f, 0.5f);
         matrices.scale(0.5f, 0.5f, 0.5f);
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(entity.getRenderingRotation()));
 
+        assert entity.getWorld() != null;
         itemRenderer.renderItem(stack, ModelTransformationMode.GUI, getLightLevel(entity.getWorld(), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
         matrices.pop();
     }

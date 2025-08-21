@@ -1,14 +1,14 @@
 {
-	"required": true,
-	"package": "alpheta.abyssal_spectrum.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ExampleMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
+    "required": true,
+    "package": "alpheta.abyssal_spectrum.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "AbyssalProtectionDamageReductionMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "overwrites": {
+        "requireAnnotations": true
 	}
 }

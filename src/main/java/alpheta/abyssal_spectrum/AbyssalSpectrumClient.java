@@ -25,7 +25,5 @@ public class AbyssalSpectrumClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.ALTAR_BE, AltarBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.CRYSTAL_HOLDER_BE, CrystalHolderBlockEntityRenderer::new);
-
-
     }
 }

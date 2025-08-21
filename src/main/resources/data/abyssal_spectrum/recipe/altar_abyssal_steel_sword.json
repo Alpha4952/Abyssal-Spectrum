@@ -1,11 +1,11 @@
 {
     "type": "minecraft:smithing",
     "level": 1,
-    "base": {
+    "altar": {
         "item": "minecraft:netherite_sword"
     },
-    "addition": {
-        "item": "abyssal_spectrum:abyssal_steel_ingot"
+    "crystal": {
+        "item": "abyssal_spectrum:abyssal_steel_upgrade_crystal"
     },
     "result": {
         "item": "abyssal_spectrum:abyssal_steel_sword"

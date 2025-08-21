@@ -1,7 +1,7 @@
 package alpheta.abyssal_spectrum.item;
 
 import alpheta.abyssal_spectrum.AbyssalSpectrum;
-import alpheta.abyssal_spectrum.item.custom.GeoArmorItem;
+import alpheta.abyssal_spectrum.item.custom.abyssal_steel_armor.AbyssalSteelArmorItem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -27,16 +27,16 @@ public class ModItems {
             )
     );
     public static final Item abyssal_steel_boots = registerItem("abyssal_steel_boots",
-            new GeoArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.BOOTS, new Item.Settings()
+            new AbyssalSteelArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.BOOTS, new Item.Settings()
                     .maxDamage(1028)));
     public static final Item abyssal_steel_leggings = registerItem("abyssal_steel_leggings",
-            new GeoArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.LEGGINGS, new Item.Settings()
+            new AbyssalSteelArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.LEGGINGS, new Item.Settings()
                     .maxDamage(1028)));
     public static final Item abyssal_steel_chestplate = registerItem("abyssal_steel_chestplate",
-            new GeoArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
+            new AbyssalSteelArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
                     .maxDamage(1028)));
     public static final Item abyssal_steel_helmet = registerItem("abyssal_steel_helmet",
-            new GeoArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.HELMET, new Item.Settings()
+            new AbyssalSteelArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.HELMET, new Item.Settings()
                     .maxDamage(1028)));
 
     public static final Item abyssalite_sword = registerItem("abyssalite_sword",

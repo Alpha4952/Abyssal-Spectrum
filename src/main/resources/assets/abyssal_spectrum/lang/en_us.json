@@ -27,5 +27,7 @@
 
     "tooltip.abyssal_spectrum.needs_shift": "Press §dShift§r for more information",
     "tooltip.armor.abyssal_spectrum.abyssal_steel1": "Full set bonus: §1Abyssal Protection§r",
-    "tooltip.armor.abyssal_spectrum.abyssal_steel2": "    §oReduces 20% damage taken§r"
+    "tooltip.armor.abyssal_spectrum.abyssal_steel2": "    §oReduces 20% damage taken§r",
+
+    "effect.abyssal_spectrum.abyssal_protection": "Abyssal Protection"
 }
