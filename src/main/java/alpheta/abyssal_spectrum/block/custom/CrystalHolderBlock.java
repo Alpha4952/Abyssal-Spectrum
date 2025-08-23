@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class CrystalHolderBlock extends BlockWithEntity implements BlockEntityProvider {
     private static final VoxelShape SHAPE =
-            Block.createCuboidShape(2, 0, 2, 14, 13, 14);
+            Block.createCuboidShape(2, 7, 2, 14, 7.5, 14);
     public static final MapCodec<CrystalHolderBlock> CODEC = CrystalHolderBlock.createCodec(CrystalHolderBlock::new);
 
     public CrystalHolderBlock(Settings settings) {
@@ -45,7 +45,7 @@ public class CrystalHolderBlock extends BlockWithEntity implements BlockEntityPr
 
     @Override
     protected BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
+        return BlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
     @Override

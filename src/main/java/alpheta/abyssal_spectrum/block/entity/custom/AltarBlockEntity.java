@@ -1,11 +1,11 @@
 package alpheta.abyssal_spectrum.block.entity.custom;
 
+import alpheta.abyssal_spectrum.block.ModBlocks;
 import alpheta.abyssal_spectrum.block.custom.AltarBlock;
 import alpheta.abyssal_spectrum.block.entity.ImplementedInventory;
 import alpheta.abyssal_spectrum.block.entity.ModBlockEntities;
 import alpheta.abyssal_spectrum.item.ModItems;
 import alpheta.abyssal_spectrum.recipe.*;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventories;
@@ -102,13 +102,20 @@ public class AltarBlockEntity extends BlockEntity implements ImplementedInventor
             world.setBlockState(pos, this.getCachedState().with(AltarBlock.LIT, working), 3);
         }
 
-        if (hasRecipe()) {
+        int altarLevel = 0;
+        BlockState catalystBlock = world.getBlockState(this.pos.down());
+        if (catalystBlock == ModBlocks.abyssal_steel_block.getDefaultState()) altarLevel = 1;
+
+        BlockPos abovePos = this.pos.up().up();
+        CrystalHolderBlockEntity crystalHolderBE = (CrystalHolderBlockEntity) world.getBlockEntity(abovePos);
+
+        if (hasRecipe(crystalHolderBE, altarLevel)) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
             markDirty(world, pos.up().up(), state);
 
             if (hasCraftingFinished()) {
-                craftItem();
+                craftItem(crystalHolderBE, abovePos);
                 markDirty(world, pos, state);
                 markDirty(world, pos.up().up(), state);
                 resetProgress();
@@ -123,16 +130,11 @@ public class AltarBlockEntity extends BlockEntity implements ImplementedInventor
         this.maxProgress = 600;
     }
 
-    private void craftItem() {
-        Optional<RecipeEntry<AltarRecipe>> recipe = getCurrentRecipe();
-        if (recipe.isEmpty()) {
+    private void craftItem(CrystalHolderBlockEntity crystalHolderBE, BlockPos abovePos) {
+        Optional<RecipeEntry<AltarRecipe>> recipe = getCurrentRecipe(crystalHolderBE);
+        if (recipe.isEmpty() || world == null) {
             return;
         }
-
-        assert this.world != null;
-
-        BlockPos abovePos = this.pos.up().up();
-        CrystalHolderBlockEntity crystalHolderBE = (CrystalHolderBlockEntity) this.world.getBlockEntity(abovePos);
 
         ItemStack output = recipe.get().value().output();
 
@@ -152,29 +154,21 @@ public class AltarBlockEntity extends BlockEntity implements ImplementedInventor
         this.progress++;
     }
 
-    private boolean hasRecipe() {
-        Optional<RecipeEntry<AltarRecipe>> recipe = getCurrentRecipe();
-        if (recipe.isEmpty()) {
-            return false;
-        }
-        if (recipe.get().value().getLevel() > 1) return false;
+    private boolean hasRecipe(CrystalHolderBlockEntity crystalHolderBE, int altarLevel) {
+        Optional<RecipeEntry<AltarRecipe>> recipe = getCurrentRecipe(crystalHolderBE);
+        //ItemStack output = recipe.get().value().output();
 
-        ItemStack output = recipe.get().value().output();
-
-        return true;
+        return recipe.filter(altarRecipeRecipeEntry -> altarRecipeRecipeEntry.value().getLevel() <= altarLevel).isPresent();
     }
 
-    private Optional<RecipeEntry<AltarRecipe>> getCurrentRecipe() {
+    private Optional<RecipeEntry<AltarRecipe>> getCurrentRecipe(CrystalHolderBlockEntity crystalHolderBE) {
         assert this.getWorld() != null;
         assert this.world != null;
 
         ItemStack altarStack = this.getStack(0);
 
-        BlockPos abovePos = this.pos.up().up();
-        CrystalHolderBlockEntity crystalHolderBE = (CrystalHolderBlockEntity) this.world.getBlockEntity(abovePos);
-
         if (!(crystalHolderBE instanceof CrystalHolderBlockEntity CrystalHolderBE)) {
-            return Optional.empty(); // no recipe possible without the crystal holder
+            return Optional.empty();
         }
 
         ItemStack crystalStack = CrystalHolderBE.getStack(0);

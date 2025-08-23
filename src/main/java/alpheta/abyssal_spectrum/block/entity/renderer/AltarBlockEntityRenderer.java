@@ -1,6 +1,5 @@
 package alpheta.abyssal_spectrum.block.entity.renderer;
 
-import alpheta.abyssal_spectrum.block.custom.AltarBlock;
 import alpheta.abyssal_spectrum.block.entity.custom.AltarBlockEntity;
 import alpheta.abyssal_spectrum.block.entity.custom.AltarBlockEntityModel;
 import net.minecraft.client.MinecraftClient;
@@ -32,7 +31,7 @@ public class AltarBlockEntityRenderer extends GeoBlockRenderer<AltarBlockEntity>
         ItemStack stack = entity.getStack(0);
 
         matrices.push();
-        matrices.translate(0.5f, 1.25f, 0.5f);
+        matrices.translate(0.5f, 0.5f, 0.5f);
         matrices.scale(0.5f, 0.5f, 0.5f);
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(entity.getRenderingRotation()));
 

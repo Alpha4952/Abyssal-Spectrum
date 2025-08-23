@@ -62,6 +62,7 @@ public class ModBlocks {
 
     public static final Block crystal_holder = registerBlock("crystal_holder",
             new CrystalHolderBlock(AbstractBlock.Settings.create()
+                    .nonOpaque()
                     .mapColor(MapColor.WHITE)
                     .requiresTool()
                     .strength(25.0F, 2000.0F)

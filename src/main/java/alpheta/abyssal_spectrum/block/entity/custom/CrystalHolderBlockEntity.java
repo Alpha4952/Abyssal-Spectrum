@@ -14,8 +14,12 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.animatable.GeoBlockEntity;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.*;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class CrystalHolderBlockEntity extends BlockEntity implements ImplementedInventory {
+public class CrystalHolderBlockEntity extends BlockEntity implements ImplementedInventory, GeoBlockEntity {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     private float rotation = 0;
 
@@ -57,5 +61,23 @@ public class CrystalHolderBlockEntity extends BlockEntity implements Implemented
     @Override
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
         return createNbt(registryLookup);
+    }
+
+    protected static final RawAnimation DEPLOY_ANIM = RawAnimation.begin().thenLoop("idle");
+
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, this::deployAnimController));
+    }
+
+    protected <E extends CrystalHolderBlockEntity> PlayState deployAnimController(final AnimationState<E> state) {
+        return state.setAndContinue(DEPLOY_ANIM);
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 }
