@@ -1,5 +1,6 @@
 package alpheta.abyssal_spectrum.block.custom;
 
+import alpheta.abyssal_spectrum.block.Properties.ModBlockProperties;
 import alpheta.abyssal_spectrum.block.entity.ModBlockEntities;
 import com.mojang.serialization.MapCodec;
 import alpheta.abyssal_spectrum.block.entity.custom.AltarBlockEntity;
@@ -13,6 +14,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
@@ -26,6 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class AltarBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final BooleanProperty LIT = Properties.LIT;
+    public static final IntProperty LEVEL = ModBlockProperties.LEVEL;
 
     private static final VoxelShape SHAPE =
             Block.createCuboidShape(1, 0, 1, 15, 16, 15);
@@ -34,12 +37,14 @@ public class AltarBlock extends BlockWithEntity implements BlockEntityProvider {
     public AltarBlock(Settings settings) {
         super(settings.luminance(state -> state.get(LIT) ? 15 : 0));
         this.setDefaultState(this.stateManager.getDefaultState()
-                .with(LIT, false));
+                .with(LIT, false)
+                .with(LEVEL, 0));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(LIT);
+        builder.add(LIT)
+                .add(LEVEL);
     }
 
     @Override

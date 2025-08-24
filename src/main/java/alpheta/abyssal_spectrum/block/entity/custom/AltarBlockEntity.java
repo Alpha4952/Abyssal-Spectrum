@@ -44,7 +44,7 @@ public class AltarBlockEntity extends BlockEntity implements ImplementedInventor
     }
 
     private int progress = 0;
-    private int maxProgress = 600;
+    private int maxProgress = 600 / Math.max(this.getCachedState().get(AltarBlock.LEVEL), 1);
 
     @Override
     public DefaultedList<ItemStack> getItems() {
@@ -79,6 +79,7 @@ public class AltarBlockEntity extends BlockEntity implements ImplementedInventor
     }
 
     protected static final RawAnimation DEPLOY_ANIM = RawAnimation.begin().thenLoop("idle");
+    protected static final RawAnimation CRAFT_ANIM = RawAnimation.begin().thenPlay("crafting_init").thenLoop("crafting_progress");
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -88,6 +89,7 @@ public class AltarBlockEntity extends BlockEntity implements ImplementedInventor
     }
 
     protected <E extends AltarBlockEntity> PlayState deployAnimController(final AnimationState<E> state) {
+        if (this.progress > 0) return state.setAndContinue(CRAFT_ANIM);
         return state.setAndContinue(DEPLOY_ANIM);
     }
 
@@ -102,9 +104,12 @@ public class AltarBlockEntity extends BlockEntity implements ImplementedInventor
             world.setBlockState(pos, this.getCachedState().with(AltarBlock.LIT, working), 3);
         }
 
-        int altarLevel = 0;
         BlockState catalystBlock = world.getBlockState(this.pos.down());
-        if (catalystBlock == ModBlocks.abyssal_steel_block.getDefaultState()) altarLevel = 1;
+        if (catalystBlock == ModBlocks.abyssal_steel_block.getDefaultState()) world.setBlockState(pos, this.getCachedState().with(AltarBlock.LEVEL, 1), 3);
+        else if (catalystBlock == ModBlocks.ebonite_block.getDefaultState()) world.setBlockState(pos, this.getCachedState().with(AltarBlock.LEVEL, 2), 3);
+        else world.setBlockState(pos, this.getCachedState().with(AltarBlock.LEVEL, 0), 3);
+
+        int altarLevel = this.getCachedState().get(AltarBlock.LEVEL);
 
         BlockPos abovePos = this.pos.up().up();
         CrystalHolderBlockEntity crystalHolderBE = (CrystalHolderBlockEntity) world.getBlockEntity(abovePos);
@@ -127,7 +132,7 @@ public class AltarBlockEntity extends BlockEntity implements ImplementedInventor
 
     private void resetProgress() {
         this.progress = 0;
-        this.maxProgress = 600;
+        this.maxProgress = 600 / Math.max(this.getCachedState().get(AltarBlock.LEVEL), 1);
     }
 
     private void craftItem(CrystalHolderBlockEntity crystalHolderBE, BlockPos abovePos) {

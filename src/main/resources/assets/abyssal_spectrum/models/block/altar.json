@@ -4,7 +4,8 @@
     "parent": "minecraft:block/cube_all",
 	"texture_size": [32, 32],
 	"textures": {
-		"2": "abyssal_spectrum:block/altar"
+		"2": "abyssal_spectrum:block/altar/altar",
+        "particle": "abyssal_spectrum:block/altar/altar"
 	},
 	"elements": [
 		{

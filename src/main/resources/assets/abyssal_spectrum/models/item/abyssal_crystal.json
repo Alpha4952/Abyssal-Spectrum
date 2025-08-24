@@ -1,0 +1,9 @@
+{
+    "credit": "Made with Blockbench",
+    "texture_size": [ 48, 32 ],
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "item/abyssal_crystal",
+        "particle": "item/crystal/abyssal_crystal"
+  }
+}
