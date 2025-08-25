@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+        "a": {
+            "item": "abyssal_spectrum:abyssal_steel_ingot"
+        },
+        "g": {
+            "item": "minecraft:glass"
+        }
+    },
+    "pattern": [
+        " a ",
+        "aga",
+        " a "
+    ],
+    "result": {
+        "id": "abyssal_spectrum:abyssal_crystal",
+        "count": 1
+    }
+}

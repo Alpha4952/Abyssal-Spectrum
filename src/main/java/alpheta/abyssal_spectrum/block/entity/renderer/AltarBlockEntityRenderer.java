@@ -8,12 +8,10 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RotationAxis;
@@ -84,19 +82,8 @@ public class AltarBlockEntityRenderer extends GeoBlockRenderer<AltarBlockEntity>
         }
 
         assert entity.getWorld() != null;
-        itemRenderer.renderItem(stack, ModelTransformationMode.GUI, getLightLevel(entity.getWorld(), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
+        itemRenderer.renderItem(stack, ModelTransformationMode.GROUND, getLightLevel(entity.getWorld(), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
         matrices.pop();
-    }
-
-    private ItemEntity createBeamItem(AltarBlockEntity entity) {
-        ItemStack dummyStack = ItemStack.EMPTY; // just a placeholder
-        ItemEntity itemEntity = new ItemEntity(entity.getWorld(),
-                entity.getPos().getX() + 0.5,
-                entity.getPos().getY() + 1,
-                entity.getPos().getZ() + 0.5,
-                dummyStack);
-        itemEntity.setInvisible(true);
-        return itemEntity;
     }
 
     private int getLightLevel(World world, BlockPos pos) {

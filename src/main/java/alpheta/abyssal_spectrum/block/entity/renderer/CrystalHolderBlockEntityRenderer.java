@@ -31,12 +31,12 @@ public class CrystalHolderBlockEntityRenderer extends GeoBlockRenderer<CrystalHo
         ItemStack stack = entity.getStack(0);
 
         matrices.push();
-        matrices.translate(0.5f, 0.75f, 0.5f);
+        matrices.translate(0.5f, 0.25f, 0.5f);
         matrices.scale(0.5f, 0.5f, 0.5f);
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(entity.getRenderingRotation()));
 
         assert entity.getWorld() != null;
-        itemRenderer.renderItem(stack, ModelTransformationMode.GUI, getLightLevel(entity.getWorld(), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
+        itemRenderer.renderItem(stack, ModelTransformationMode.GROUND, getLightLevel(entity.getWorld(), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
         matrices.pop();
     }
 

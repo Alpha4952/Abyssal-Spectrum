@@ -1,9 +1,114 @@
 {
     "credit": "Made with Blockbench",
     "texture_size": [ 48, 32 ],
-    "parent": "minecraft:item/generated",
+    "parent": "builtin/entity",
     "textures": {
-        "layer0": "item/abyssal_crystal",
         "particle": "item/crystal/abyssal_crystal"
-  }
+  },
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [
+                0,
+                30,
+                10
+            ],
+            "translation": [
+                -2,
+                -0.75,
+                0
+            ],
+            "scale": [
+                0.5,
+                0.5,
+                0.5
+            ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [
+                0,
+                -30,
+                -10
+            ],
+            "translation": [
+                2,
+                -0.75,
+                0
+            ],
+            "scale": [
+                0.5,
+                0.5,
+                0.5
+            ]
+        },
+        "firstperson_righthand": {
+            "rotation": [
+                -10,
+                0,
+                0
+            ],
+            "translation": [
+                -2,
+                -0.5,
+                0
+            ],
+            "scale": [
+                0.75,
+                0.75,
+                0.75
+            ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [
+                -10,
+                0,
+                0
+            ],
+            "translation": [
+                3.25,
+                -0.5,
+                0
+            ],
+            "scale": [
+                0.75,
+                0.75,
+                0.75
+            ]
+        },
+        "ground": {
+            "rotation": [
+                0,
+                0,
+                10
+            ],
+            "translation": [
+                -2.5,
+                -5.25,
+                -3.5
+            ]
+        },
+        "gui": {
+            "rotation": [
+                10,
+                -30,
+                10
+            ],
+            "translation": [
+                0,
+                -4.25,
+                0
+            ]
+        },
+        "fixed": {
+            "rotation": [
+                0,
+                35,
+                10
+            ],
+            "translation": [
+                -4.25,
+                -4,
+                -1.5
+            ]
+        }
+    }
 }

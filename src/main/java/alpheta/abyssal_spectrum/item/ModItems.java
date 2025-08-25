@@ -85,7 +85,7 @@ public class ModItems {
     );
 
     public static final Item depleted_crystal = registerItem("depleted_crystal", new CrystalItem(new Item.Settings()));
-    public static final Item abyssal_crystal = registerItem("abyssal_steel_upgrade_crystal", new CrystalItem(new Item.Settings()));
+    public static final Item abyssal_crystal = registerItem("abyssal_crystal", new CrystalItem(new Item.Settings()));
 
 
     private static Item registerItem(String item_name, Item item) {

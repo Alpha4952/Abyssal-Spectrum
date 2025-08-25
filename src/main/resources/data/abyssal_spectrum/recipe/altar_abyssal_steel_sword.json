@@ -5,7 +5,7 @@
         "item": "minecraft:netherite_sword"
     },
     "crystal": {
-        "item": "abyssal_spectrum:abyssal_steel_upgrade_crystal"
+        "item": "abyssal_spectrum:abyssal_crystal"
     },
     "result": {
         "id": "abyssal_spectrum:abyssal_steel_sword",
