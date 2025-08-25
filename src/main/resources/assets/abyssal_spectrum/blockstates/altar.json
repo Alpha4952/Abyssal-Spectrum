@@ -1,7 +1,5 @@
 {
     "variants": {
-        "": {
-            "model": "abyssal_spectrum:block/altar"
-        }
+        "": { "model": "abyssal_spectrum:block/altar" }
     }
 }

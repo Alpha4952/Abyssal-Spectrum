@@ -1,7 +1,8 @@
 package alpheta.abyssal_spectrum.item;
 
 import alpheta.abyssal_spectrum.AbyssalSpectrum;
-import alpheta.abyssal_spectrum.item.custom.GeoArmorItem;
+import alpheta.abyssal_spectrum.item.custom.crystal.CrystalItem;
+import alpheta.abyssal_spectrum.item.custom.abyssal_steel_armor.AbyssalSteelArmorItem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -27,16 +28,16 @@ public class ModItems {
             )
     );
     public static final Item abyssal_steel_boots = registerItem("abyssal_steel_boots",
-            new GeoArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.BOOTS, new Item.Settings()
+            new AbyssalSteelArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.BOOTS, new Item.Settings()
                     .maxDamage(1028)));
     public static final Item abyssal_steel_leggings = registerItem("abyssal_steel_leggings",
-            new GeoArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.LEGGINGS, new Item.Settings()
+            new AbyssalSteelArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.LEGGINGS, new Item.Settings()
                     .maxDamage(1028)));
     public static final Item abyssal_steel_chestplate = registerItem("abyssal_steel_chestplate",
-            new GeoArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
+            new AbyssalSteelArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
                     .maxDamage(1028)));
     public static final Item abyssal_steel_helmet = registerItem("abyssal_steel_helmet",
-            new GeoArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.HELMET, new Item.Settings()
+            new AbyssalSteelArmorItem(ModArmorMaterials.ABYSSAL_STEEL, ArmorItem.Type.HELMET, new Item.Settings()
                     .maxDamage(1028)));
 
     public static final Item abyssalite_sword = registerItem("abyssalite_sword",
@@ -82,6 +83,10 @@ public class ModItems {
                     .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.STELLARITE, 1, -2.8f))
             )
     );
+
+    public static final Item depleted_crystal = registerItem("depleted_crystal", new CrystalItem(new Item.Settings()));
+    public static final Item abyssal_crystal = registerItem("abyssal_crystal", new CrystalItem(new Item.Settings()));
+
 
     private static Item registerItem(String item_name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(AbyssalSpectrum.MOD_ID, item_name), item);

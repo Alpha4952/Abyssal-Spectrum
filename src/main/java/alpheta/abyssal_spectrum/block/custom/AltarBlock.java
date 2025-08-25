@@ -1,13 +1,21 @@
 package alpheta.abyssal_spectrum.block.custom;
 
+import alpheta.abyssal_spectrum.block.Properties.ModBlockProperties;
+import alpheta.abyssal_spectrum.block.entity.ModBlockEntities;
 import com.mojang.serialization.MapCodec;
 import alpheta.abyssal_spectrum.block.entity.custom.AltarBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
@@ -19,12 +27,24 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class AltarBlock extends BlockWithEntity implements BlockEntityProvider {
+    public static final BooleanProperty LIT = Properties.LIT;
+    public static final IntProperty LEVEL = ModBlockProperties.LEVEL;
+
     private static final VoxelShape SHAPE =
-            Block.createCuboidShape(0, 0, 0, 16, 16, 16);
+            Block.createCuboidShape(1, 0, 1, 15, 16, 15);
     public static final MapCodec<AltarBlock> CODEC = AltarBlock.createCodec(AltarBlock::new);
 
     public AltarBlock(Settings settings) {
-        super(settings);
+        super(settings.luminance(state -> state.get(LIT) ? 15 : 0));
+        this.setDefaultState(this.stateManager.getDefaultState()
+                .with(LIT, false)
+                .with(LEVEL, 0));
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(LIT)
+                .add(LEVEL);
     }
 
     @Override
@@ -37,15 +57,9 @@ public class AltarBlock extends BlockWithEntity implements BlockEntityProvider {
         return CODEC;
     }
 
-    @Nullable
-    @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new AltarBlockEntity(pos, state);
-    }
-
     @Override
     protected BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
+        return BlockRenderType.ENTITYBLOCK_ANIMATED;
     }
 
     @Override
@@ -109,5 +123,21 @@ public class AltarBlock extends BlockWithEntity implements BlockEntityProvider {
         }
 
         return ItemActionResult.FAIL;
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new AltarBlockEntity(pos, state);
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        if(world.isClient()) {
+            return null;
+        }
+
+        return validateTicker(type, ModBlockEntities.ALTAR_BE,
+                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

@@ -1,10 +1,12 @@
 package alpheta.abyssal_spectrum.recipe;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
@@ -13,25 +15,23 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public record AltarRecipe(Ingredient input1, Ingredient input2, ItemStack output) implements Recipe<AltarInput> {
+public record AltarRecipe(Ingredient altar, Ingredient crystal, ItemStack output, int level) implements Recipe<AltarInput> {
 
     @Override
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> list = DefaultedList.of();
-        list.add(input1);
-        list.add(input2);
+        list.add(altar);
+        list.add(crystal);
         return list;
     }
 
-    @Override
-    public boolean matches(AltarInput input, World world) {
+    public boolean matches(AltarInput AltarInput, World world) {
         if (world.isClient()) return false;
 
-        ItemStack stack1 = input.getStackInSlot(0);
-        ItemStack stack2 = input.getStackInSlot(1);
+        ItemStack AltarStack = AltarInput.getStackInSlot(0);
+        ItemStack CrystalStack = AltarInput.getStackInSlot(1);
 
-        // match either order
-        return (input1.test(stack1) && input2.test(stack2)) || (input1.test(stack2) && input2.test(stack1));
+        return (altar.test(AltarStack) && crystal.test(CrystalStack));
     }
 
     @Override
@@ -41,12 +41,12 @@ public record AltarRecipe(Ingredient input1, Ingredient input2, ItemStack output
 
     @Override
     public boolean fits(int width, int height) {
-        return true; // not grid-based, always fits
+        return true;
     }
 
     @Override
     public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
-        return output;
+        return output.copy();
     }
 
     @Override
@@ -59,19 +59,25 @@ public record AltarRecipe(Ingredient input1, Ingredient input2, ItemStack output
         return ModRecipes.ALTAR_TYPE;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     // --- Serializer class ---
     public static class Serializer implements RecipeSerializer<AltarRecipe> {
         public static final MapCodec<AltarRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
-                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("input1").forGetter(AltarRecipe::input1),
-                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("input2").forGetter(AltarRecipe::input2),
-                ItemStack.CODEC.fieldOf("result").forGetter(AltarRecipe::output)
+                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("altar").forGetter(AltarRecipe::altar),
+                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("crystal").forGetter(AltarRecipe::crystal),
+                ItemStack.CODEC.fieldOf("result").forGetter(AltarRecipe::output),
+                Codec.INT.fieldOf("level").forGetter(AltarRecipe::level)
         ).apply(inst, AltarRecipe::new));
 
         public static final PacketCodec<RegistryByteBuf, AltarRecipe> STREAM_CODEC =
                 PacketCodec.tuple(
-                        Ingredient.PACKET_CODEC, AltarRecipe::input1,
-                        Ingredient.PACKET_CODEC, AltarRecipe::input2,
+                        Ingredient.PACKET_CODEC, AltarRecipe::altar,
+                        Ingredient.PACKET_CODEC, AltarRecipe::crystal,
                         ItemStack.PACKET_CODEC, AltarRecipe::output,
+                        PacketCodecs.VAR_INT, AltarRecipe::level,
                         AltarRecipe::new
                 );
 

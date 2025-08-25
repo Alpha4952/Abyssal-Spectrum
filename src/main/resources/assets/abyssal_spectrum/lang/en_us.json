@@ -16,6 +16,9 @@
     "item.abyssal_spectrum.abyssal_steel_leggings": "Abyssal Steel leggings",
     "item.abyssal_spectrum.abyssal_steel_boots": "Abyssal Steel boots",
 
+    "item.abyssal_spectrum.abyssal_crystal": "Abyssal Crystal",
+    "item.abyssal_spectrum.depleted_crystal": "Depleted Crystal",
+
     "block.abyssal_spectrum.abyssal_steel_block": "Block of Abyssal Steel",
     "block.abyssal_spectrum.ebonite_block": "Block of Ebonite",
     "block.abyssal_spectrum.pyronite_block": "Block of Pyronite",
@@ -27,5 +30,7 @@
 
     "tooltip.abyssal_spectrum.needs_shift": "Press §dShift§r for more information",
     "tooltip.armor.abyssal_spectrum.abyssal_steel1": "Full set bonus: §1Abyssal Protection§r",
-    "tooltip.armor.abyssal_spectrum.abyssal_steel2": "    §oReduces 20% damage taken§r"
+    "tooltip.armor.abyssal_spectrum.abyssal_steel2": "    §oReduces 20% damage taken§r",
+
+    "effect.abyssal_spectrum.abyssal_protection": "Abyssal Protection"
 }

@@ -3,10 +3,10 @@ package alpheta.abyssal_spectrum.recipe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.input.RecipeInput;
 
-public record AltarInput(ItemStack input1, ItemStack input2) implements RecipeInput {
+public record AltarInput(ItemStack altarInput, ItemStack crystalInput) implements RecipeInput {
     @Override
     public ItemStack getStackInSlot(int slot) {
-        return slot == 0 ? input1 : input2;
+        return slot == 0 ? altarInput : crystalInput;
     }
 
     @Override

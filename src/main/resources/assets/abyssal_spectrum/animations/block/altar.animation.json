@@ -1,0 +1,78 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true,
+			"animation_length": 3.6,
+			"bones": {
+				"middle": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"3.6": {
+							"vector": [0, 360, 0]
+						}
+					}
+				}
+			}
+		},
+        "crafting_init": {
+            "loop": false,
+            "animation_length": 1,
+            "bones": {
+                "circle": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, -180, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 0]
+                        }
+                    },
+                    "position": {
+                        "0.0": {
+                            "vector": [0, -3.5, 0]
+                        },
+                        "1.0": {
+                            "vector": [0, 0, 0]
+                        }
+                    },
+                    "scale": {
+                        "0.0": {
+                            "vector": [0.2, 1, 0.2]
+                        },
+                        "1.0": {
+                            "vector": [1.5, 1, 1.5]
+                        }
+                    }
+                }
+            }
+        },
+        "crafting_progress": {
+            "loop": true,
+            "animation_length": 3,
+            "bones": {
+                "circle": {
+                    "rotation": {
+                        "0.0": {
+                            "vector": [0, 0, 0]
+                        },
+                        "3.0": {
+                            "vector": [0, 360, 0],
+                            "easing": "linear"
+                        }
+                    },
+                    "scale": {
+                        "0.0": {
+                            "vector": [1.5, 1, 1.5]
+                        },
+                        "3.0": {
+                            "vector": [1.5, 1, 1.5]
+                        }
+                    }
+                }
+            }
+        }
+	}
+}

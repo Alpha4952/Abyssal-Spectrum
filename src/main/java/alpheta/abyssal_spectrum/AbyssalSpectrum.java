@@ -1,8 +1,10 @@
 package alpheta.abyssal_spectrum;
 
 import alpheta.abyssal_spectrum.block.ModBlocks;
+import alpheta.abyssal_spectrum.block.Properties.ModBlockProperties;
 import alpheta.abyssal_spectrum.block.entity.ModBlockEntities;
 import alpheta.abyssal_spectrum.config.AbyssalSpectrumServerConfig;
+import alpheta.abyssal_spectrum.effect.ModEffects;
 import alpheta.abyssal_spectrum.item.ModGroups;
 import alpheta.abyssal_spectrum.item.ModItems;
 import alpheta.abyssal_spectrum.item.ModLootTable;
@@ -30,5 +32,9 @@ public class AbyssalSpectrum implements ModInitializer {
         ModScreenHandlers.registerScreenHandlers();
 
         ModRecipes.registerRecipes();
+
+        ModEffects.registerEffect();
+
+        ModBlockProperties.registerModBlockProperties();
 	}
 }

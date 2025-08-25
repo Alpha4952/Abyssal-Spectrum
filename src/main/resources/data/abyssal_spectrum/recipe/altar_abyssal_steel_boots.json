@@ -1,0 +1,14 @@
+{
+    "type": "abyssal_spectrum:altar",
+    "level": 1,
+    "altar": {
+        "item": "minecraft:netherite_boots"
+    },
+    "crystal": {
+        "item": "abyssal_spectrum:abyssal_steel_upgrade_crystal"
+    },
+    "result": {
+        "id": "abyssal_spectrum:abyssal_steel_boots",
+        "count": 1
+    }
+}

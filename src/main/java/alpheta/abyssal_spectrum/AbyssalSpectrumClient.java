@@ -10,8 +10,6 @@ import alpheta.abyssal_spectrum.screen.custom.NetheriteSmelterScreen;
 import alpheta.abyssal_spectrum.util.ModModelPredicates;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class AbyssalSpectrumClient implements ClientModInitializer {
     public static final String MOD_ID = "abyssal_spectrum_client";
@@ -25,7 +23,5 @@ public class AbyssalSpectrumClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.ALTAR_BE, AltarBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.CRYSTAL_HOLDER_BE, CrystalHolderBlockEntityRenderer::new);
-
-
     }
 }
